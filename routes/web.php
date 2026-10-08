@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MahasiswaController;
@@ -34,3 +35,5 @@ Route::get('about', function() {
 Route::resource('matakuliah', MatakuliahController::class)->except(['show']);
 
 Route::get('/matakuliah/show/{kode?}', [MatakuliahController:: class, 'show'])->name('matakuliah.show');
+
+Route::get('/home', [HomeController::class, 'index']);

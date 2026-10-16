@@ -158,7 +158,10 @@
                 </div>
             </div>
 
-            <div class="card">
+
+
+            <div class="col-md-6">
+                <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Form Pertanyaan</h5>
 
@@ -191,7 +194,6 @@
                 </div>
             </div>
 
-            <div class="col-md-6">
                 {{-- Alerts --}}
                 <div class="card ">
                     <div class="card-body">

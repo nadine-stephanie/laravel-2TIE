@@ -103,6 +103,7 @@
                     </div>
                 </div>
 
+
                 <!-- Accordion -->
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
@@ -134,6 +135,7 @@
                     </div>
                 </div>
 
+
                 {{-- Badge, List & Card --}}
                 <div class="card">
                     <div class="card-body">
@@ -157,8 +159,6 @@
                     </div>
                 </div>
             </div>
-
-
 
             <div class="col-md-6">
                 <div class="card">
@@ -194,6 +194,7 @@
                 </div>
             </div>
 
+
                 {{-- Alerts --}}
                 <div class="card ">
                     <div class="card-body">
@@ -204,6 +205,7 @@
                         <div class="alert alert-danger mb-0">Danger alert</div>
                     </div>
                 </div>
+
 
                 {{-- Buttons --}}
                 <div class="card">
@@ -218,6 +220,7 @@
                         </div>
                     </div>
                 </div>
+
 
                 {{-- Table --}}
                 <div class="card">
@@ -256,7 +259,8 @@
                             </table>
                         </div>
                         <p class="text-muted small mb-0">Tambahkan <code>.table-striped</code> atau
-                            <code>.table-bordered</code> sesuai kebutuhan.</p>
+                            <code>.table-bordered</code> sesuai kebutuhan.
+                        </p>
                     </div>
                 </div>
             </div>

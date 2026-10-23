@@ -299,7 +299,7 @@
                 <div class="card border-0 shadow components-section">
                     <div class="card-body">
                         <form action="{{ route('pelanggan.store') }}" method="POST">
-                            @csrf 
+                            @csrf
                             <div class="row mb-4">
                                 <div class="col-lg-4 col-sm-6">
                                     <!-- First Name -->
@@ -326,10 +326,8 @@
                                     <div class="mb-3">
                                         <label for="gender" class="form-label">Gender</label>
                                         <select  id="gender" name="gender" class="form-select">
-                                            <option value="">-- Pilih --</option>
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
-                                            <option value="Other">Other</option>
                                         </select>
                                     </div>
                                 </div>

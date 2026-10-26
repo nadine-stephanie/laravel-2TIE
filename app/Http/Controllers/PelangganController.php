@@ -37,9 +37,9 @@ class PelangganController extends Controller
 		$data['gender'] = $request->gender;
 		$data['email'] = $request->email;
 		$data['phone'] = $request->phone;
-		
+
 		Pelanggan::create($data);
-		
+
 		return redirect()->route('pelanggan.index')->with('success','Penambahan Data Berhasil!');
     }
 
@@ -84,5 +84,9 @@ class PelangganController extends Controller
     public function destroy(string $id)
     {
         //
+        $pelanggan = Pelanggan::findOrFail($id);
+
+        $pelanggan->delete();
+        return redirect()->route('pelanggan.index')->with('success','Data berhasil dihapus');
     }
 }

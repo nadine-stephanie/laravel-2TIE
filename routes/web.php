@@ -50,4 +50,10 @@ Route::get('/pelanggan/create', [PelangganController::class, 'create'])->name('p
 
 Route::post('/pelanggan', [PelangganController::class, 'store'])->name('pelanggan.store');
 
+<<<<<<< HEAD
 Route::resource('pelanggan', PelangganController::class);
+=======
+Route::put('/pelanggan/{id}', [PelangganController::class, 'edit'])->name('pelanggan.edit');
+
+Route::resource('pelanggan', PelangganController::class);
+>>>>>>> 220284c6033e335ba02de8759bcd34841cfae6d7

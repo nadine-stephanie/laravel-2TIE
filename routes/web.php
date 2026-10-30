@@ -6,6 +6,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\PortofolioController; 
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -50,10 +51,6 @@ Route::get('/pelanggan/create', [PelangganController::class, 'create'])->name('p
 
 Route::post('/pelanggan', [PelangganController::class, 'store'])->name('pelanggan.store');
 
-<<<<<<< HEAD
 Route::resource('pelanggan', PelangganController::class);
-=======
-Route::put('/pelanggan/{id}', [PelangganController::class, 'edit'])->name('pelanggan.edit');
 
-Route::resource('pelanggan', PelangganController::class);
->>>>>>> 220284c6033e335ba02de8759bcd34841cfae6d7
+Route::resource('cv', PortofolioController::class);

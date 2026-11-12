@@ -1,8 +1,9 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -12,9 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
-        $users = User::all();
-        return view('admin.user.index', compact('users'));
+        $data['users'] = User::all();
+        return view('admin.user.index', $data);
     }
 
     /**
@@ -22,7 +22,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
         return view('admin.user.create');
     }
 
@@ -32,59 +31,60 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'     => 'required|string|max:100',
-            'email'    => 'required|email|unique:users,email',
+            'name' => 'required|string|max:100',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
         ]);
+
         $data = $request->all();
-        $data['password'] = \Illuminate\Support\Facades\Hash::make($request->password);
+        $data['password'] = Hash::make($request->password);
+
         User::create($data);
 
-        return redirect()->route('users.index')->with('success', 'User berhasil ditambahkan!');
+        return redirect()->route('user.index')->with('success', 'User berhasil ditambahkan.');
     }
 
     /**
      * Display the specified resource.
      */
-    // public function show(string $id)
-    // {
-    //     //
-    // }
+    public function show(string $id)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
-
-    public function edit($id)
+    public function edit(string $id)
     {
-        $user = User::findOrFail($id);
-        return view('admin.user.edit', compact('user'));
+        $data['user'] = User::findOrFail($id);
+        return view('admin.user.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
         $user = User::findOrFail($id);
 
         $request->validate([
-            'name'     => 'required|string|max:100',
-            'email'    => 'required|email|unique:users,email,' . $user->id,
-            'password' => 'nullable|string|min:8|confirmed',
+            'name' => 'required|string|max:100',
+            'email' => 'required|email|unique:users,email,' . $id,
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['password', 'password_confirmation']);
 
         if ($request->filled('password')) {
+            $request->validate([
+                'password' => 'string|min:8|confirmed',
+            ]);
             $data['password'] = Hash::make($request->password);
-        } else {
-            unset($data['password']);
         }
 
         $user->update($data);
 
-        return redirect()->route('users.index')->with('success', 'User berhasil diperbarui!');
+        return redirect()->route('user.index')->with('success', 'User berhasil diperbarui.');
     }
 
     /**
@@ -92,10 +92,9 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('users.index')->with('success', 'User berhasil dihapus!');
+        return redirect()->route('user.index')->with('success', 'User berhasil dihapus.');
     }
 }

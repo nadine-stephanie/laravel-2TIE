@@ -6,8 +6,8 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\PortofolioController; 
-use App\Http\Controllers\UserController; 
+use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -56,4 +56,4 @@ Route::resource('pelanggan', PelangganController::class);
 
 Route::resource('cv', PortofolioController::class);
 
-Route::resource('users', UserController::class);
+Route::resource('user', UserController::class);
